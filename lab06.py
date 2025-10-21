@@ -38,3 +38,8 @@ print(filtered_women_expectancy)
 for i in filtered_women_expectancy["Country Name"]:
     print(i)
     
+#Part 4
+sns.relplot(data=df,
+            x="GNI per capita",
+            y="Life expectancy, female")
+    
