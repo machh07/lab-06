@@ -32,3 +32,9 @@ print(count_HIE)
 print(pd.crosstab(df["Region"], df["High Income Economy"]))
 
 #9
+filtered_women_expectancy = df[df["Life expectancy, female"] > 80]
+print(filtered_women_expectancy)
+
+for i in filtered_women_expectancy["Country Name"]:
+    print(i)
+    
