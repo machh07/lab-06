@@ -49,8 +49,8 @@ sns.relplot(data=df,
             y="Life expectancy, female",
             hue="GNI per capita",)  
 sns.relplot(data=df,
-            x="Life expectancy, male" ,
-            y="Region",
+            x="Region",
+            y="Life expectancy, male",
             hue="GNI per capita",)  
 #3
 sns.relplot(data=df,
@@ -62,7 +62,56 @@ sns.relplot(data=df,
             kind="line",
             x="Region",
             y="Life expectancy, male",
-            errorbar="sd",)   
+            errorbar="sd",)
 
-            x="Region",
-            y="Life expectancy, male",)   
+#5
+#(1)relationship between life expectancy, female and population corresponding to the regions
+sns.relplot(data=df,
+            x="Life expectancy, female",
+            y="Physicians",
+            col= "Region",)
+#(2)relationship between tertiary education of males and GNI per capita corresponding to the regions
+sns.relplot(data=df,
+            x="Tertiary education, male",
+            y="GNI per capita",
+            col= "Region",)
+#africa and Oceana dont have alot of income 
+#(3) relationship between women in national parliament and life expectancy of female corresponding to the regions
+sns.relplot(data=df,
+            x="Women in national parliament",
+            y="Life expectancy, female",
+            col= "Region",)
+#(4)
+sns.relplot(data=df,
+            x="International tourism",
+            y="High Income Economy",
+            col= "Region",)
+
+
+#6
+#a
+emissions_per_capita = df["Emissions per capita"] = (df["Greenhouse gas emissions"] / df["Population"]).round(2)
+sns.lmplot(data=df,
+           x="Internet use",
+           y="Emissions per capita")
+#There is an association between internet use and emissions per capita but it's very weak.
+
+#b
+filtered_emissions_per_capita = df[df["Emissions per capita"] > 0.03]
+print(filtered_emissions_per_capita)
+
+for i in filtered_emissions_per_capita["Country Name"]:
+    print(i)
+#Only Brunei Darussalam produces emissions higher than 0.03
+
+#c
+sns.relplot(data=df,
+            x="Internet use",
+            y="Emissions per capita",
+            col= "Region",)
+#Yes. We can observe higher emissions in the regions of Asia and America (especially) compared to Oceania and Africa which have much lower emissions and internet use.
+#d
+sns.lmplot(data=df,
+           x="High Income Economy",
+           y="Greenhouse gas emissions")
+#No, not all high income economies have high emissions. 
