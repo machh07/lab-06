@@ -41,29 +41,43 @@ for i in filtered_women_expectancy["Country Name"]:
 #Part 4
 #1
 sns.relplot(data=df,
-            x="GNI per capita",
-            y="Life expectancy, female")
+            x="Life expectancy, female",
+            y="GNI per capita")
+sns.relplot(data=df,
+            x="Life expectancy, male",
+            y="GNI per capita")
+#Yes, there is an association between life expectancy and GNI per capita. We can observe that when life expectancy increases, the GNI per capita grows exponentially.
 #2
 sns.relplot(data=df,
-            x="Region",
-            y="Life expectancy, female",
-            hue="GNI per capita",)  
+            x="Life expectancy, female",
+            y="GNI per capita",
+            hue="Region",)  
 sns.relplot(data=df,
-            x="Region",
-            y="Life expectancy, male",
-            hue="GNI per capita",)  
+            x="Life expectancy, male",
+            y="GNI per capita",
+            hue="Region",)  
 #3
 sns.relplot(data=df,
             kind="line",
-            x="Region",
-            y="Life expectancy, female",
-            errorbar="sd",)     
+            x="Life expectancy, female",
+            y="GNI per capita",
+            errorbar="sd",
+            hue="Region",)     
 sns.relplot(data=df,
             kind="line",
-            x="Region",
-            y="Life expectancy, male",
-            errorbar="sd",)
-
+            x="Life expectancy, male",
+            y="GNI per capita",
+            errorbar="sd",
+            hue="Region",)
+#4
+sns.lmplot(data=df,
+           x="Life expectancy, female",
+           y="GNI per capita",
+           hue="Region",)
+sns.lmplot(data=df,
+           x="Life expectancy, male",
+           y="GNI per capita",
+           hue="Region",)
 #5
 #(1)relationship between life expectancy, female and population corresponding to the regions
 sns.relplot(data=df,
