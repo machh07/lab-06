@@ -81,8 +81,12 @@ sns.lmplot(data=df,
 #5
 #(1)relationship between life expectancy, female and population corresponding to the regions
 sns.relplot(data=df,
-            x="Life expectancy, female",
-            y="Physicians",
+            x="Tertiary education, female",
+            y="Life expectancy, female",
+            col= "Region",)
+sns.relplot(data=df,
+            x="Tertiary education, male",
+            y="Life expectancy, male",
             col= "Region",)
 #(2)relationship between tertiary education of males and GNI per capita corresponding to the regions
 sns.relplot(data=df,
