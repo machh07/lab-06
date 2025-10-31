@@ -79,7 +79,7 @@ sns.lmplot(data=df,
            y="GNI per capita",
            hue="Region",)
 #5
-#(1)relationship between life expectancy, female and population corresponding to the regions
+#(1)relationship between life expectancy and tertiary education of males & females corresponding to different regions
 sns.relplot(data=df,
             x="Tertiary education, female",
             y="Life expectancy, female",
@@ -88,6 +88,10 @@ sns.relplot(data=df,
             x="Tertiary education, male",
             y="Life expectancy, male",
             col= "Region",)
+#In the regions of Asia and Oceania, for both males and females, the life expectancy increases linearly with the tertiary education.
+#As for Africa, both for males and females, the relationship between life expectancy and tertiary education follows a positive logarithmic curve.
+#We can observe that for all regions, the data for females is more spread out than for males, which means that there's a greater variability in education from one country to another. 
+
 #(2)relationship between tertiary education of males and GNI per capita corresponding to the regions
 sns.relplot(data=df,
             x="Tertiary education, male",
